@@ -1,12 +1,12 @@
 # Android SDK Platform-Tools
 
 ## Скачивание
-  ```https://developer.android.com/tools/releases/platform-tools?hl=ru#downloads```
+```https://developer.android.com/tools/releases/platform-tools?hl=ru#downloads```
 
 ## Выбор платформы
 - Условия соглашения
-  Я прочитал и согласен с вышеуказанными условиями
-  [Скачать Android SDK Platform-Tools для Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip?hl=ru)
+- Я прочитал и согласен с вышеуказанными условиями
+- [Скачать Android SDK Platform-Tools для Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip?hl=ru)
 - Extract All...
 - Browse... , Ctrl + N, Type "Android", Select Folder, Extract
 
@@ -25,6 +25,9 @@ Double click path, New, add copy path directory, Ok, Ok
 ```adb devices```
 ```adb shell pm grant```
 
+## Посмотреть список установленных приложений
+```adb shell pm list packages```
+
 ## Открыть камеру ```adb shell am start -a android.media.action.IMAGE_CAPTURE```
 - Помогло запустить лаунчер напрямую
 
@@ -36,17 +39,15 @@ Double click path, New, add copy path directory, Ok, Ok
 ## Посмотреть логи работы устройства ```adb logcat```
 - Грепнуть```adb shell logcat -d | grep keyevent```
 
-## Посмотреть список установленных приложений
-```adb shell pm list packages```
-
 ## Грепнуть на винде
 ```adb shell pm list packages | Select-String "com.microsoft"```
 ```adb shell pm list packages | findstr "com.microsoft"```
+
 
 ## Перезагрузить устройство
 ```adb reboot```
 
 
 ### Доп.инфа:
-	1. На новых Android(13+) методы с `input keyevent` могут не работать** из-за защиты.
-	2. Если экран выкл то команды могут не выполняться, а терминал может показывать подключение
+1. На новых Android(13+) методы с `input keyevent` могут не работать** из-за защиты.
+2. Если экран выкл то команды могут не выполняться, а терминал может показывать подключение
