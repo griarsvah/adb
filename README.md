@@ -28,21 +28,48 @@ ADB (Android Debug Bridge) — это инструмент командной с
 - Настройки - Расширенные настройки - Для разработчиков
 - Вкл - Отладка по USB
 
-[adb](https://developer.android.com/tools/adb?hl=ru)
+Про [adb](https://developer.android.com/tools/adb?hl=ru)
+
+# Перва команда
+```adb devices```
+
+Получим ответ:
+
+```
+adb devices
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+75o*******gi7p        device
+```
+
+При последующих запусках сразу получим список устройств т.к. демон уже запущен
+
+```
+adb devices
+List of devices attached
+75o*******gi7p        device
+```
+
+## Разбёрм по строчно
+
 ```* daemon not running; starting now at tcp:5037```
 Демон ADB не был запущен(система автоматически его запускает)
 
 ```* daemon started successfully```
-Начинает работу на TCP-порту 5037, который используется ADB для связи между устройством и компьютером.
+Начинает работу на TCP-порту 5037, который используется ADB для связи между устройством и компьютером
 
 ```* daemon started successfully```
 Демон успешно запущен
 
 ```List of devices attached```
-Выводит список подключенных Android-устройств.
+Список подключенных устройств
+
+```75o*******gi7p        device```
+Подключённое устройство
 
 - Уникальный идентификатор (серийный номер) подключенного устройства и напротив слово device — означает, что устройство успешно подключено и готово для работы с ADB
-- Если вместо device был бы статус unauthorized, offline или другой, это означало бы проблемы с подключением или авторизацией.
+- Если вместо device был бы статус unauthorized, offline или другой, это означало бы проблемы с подключением или авторизацией
+- 5037 - Стандартный порт, который ADB использует по умолчанию для связи между устройством и компьютером.
 
 ---
 
@@ -54,13 +81,21 @@ ADB (Android Debug Bridge) — это инструмент командной с
 
 
 Основные команды ADB:
+
 ```adb devices``` — список подключенных устройств
+
 ```adb install <apk>``` — установка APK
-```adb uninstall <apk>``` — удаление APK
+
+```adb uninstall <apk>``` — удаление APK 
+
 ```adb shell``` — вход в командную строку устройства
+
 ```adb pull <remote> <local>``` — скачивание файлов с устройства
+
 ```adb push <local> <remote>``` — загрузка файлов на устройство
+
 ```adb logcat``` — Посмотреть все логи
+
 
 ---
 
@@ -75,7 +110,8 @@ ADB (Android Debug Bridge) — это инструмент командной с
 ## Посмотреть список установленных приложений
 ```adb shell pm list packages```
 
-## Открыть камеру ```adb shell am start -a android.media.action.IMAGE_CAPTURE```
+## Открыть камеру
+```adb shell am start -a android.media.action.IMAGE_CAPTURE```
 - Помогло запустить лаунчер напрямую
 
 ## Записать видео с экрана
@@ -87,8 +123,8 @@ ADB (Android Debug Bridge) — это инструмент командной с
 - Грепнуть ```adb shell logcat -d | grep keyevent```
 
 ## Грепнуть на винде
-```adb shell pm list packages | Select-String "com.microsoft"```
-```adb shell pm list packages | findstr "com.microsoft"```
+- ```adb shell pm list packages | Select-String "com.microsoft"```
+- ```adb shell pm list packages | findstr "com.microsoft"```
 
 
 ## Перезагрузить устройство
@@ -96,5 +132,5 @@ ADB (Android Debug Bridge) — это инструмент командной с
 
 
 ### Доп.инфа:
-1. На новых Android(13+) методы с `input keyevent` могут не работать** из-за защиты.
+1. На новых Android(13+) методы с `input keyevent` могут не работать из-за защиты
 2. Если экран выкл то команды могут не выполняться, а терминал может показывать подключение
