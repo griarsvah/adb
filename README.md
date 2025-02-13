@@ -15,11 +15,11 @@ ADB (Android Debug Bridge) — это инструмент командной с
 - ПКМ, Extract All...
 - Browse... , Ctrl + N, Type "Android", Select Folder, Extract
 
-##№ Скопировать путь
-"C:\Android\platform-tools"
+### Скопировать путь
+```"C:\Android\platform-tools"```
 
 ### Добавить в переменную окружения
-- Win + R
+- ```Win``` + ```R```
 - Type: ```rundll32 sysdm.cpl,EditEnvironmentVariables```
 - Double click path, New, add copy path directory, Ok, Ok
 
@@ -44,11 +44,12 @@ ADB (Android Debug Bridge) — это инструмент командной с
 - Уникальный идентификатор (серийный номер) подключенного устройства и напротив слово device — означает, что устройство успешно подключено и готово для работы с ADB
 - Если вместо device был бы статус unauthorized, offline или другой, это означало бы проблемы с подключением или авторизацией.
 
-----
-Команда запустит ADB-демон, если он не работает
+---
+
+## Команда запустит ADB-демон, если он не работает
 ```adb start-server```
 
-Принудительно остановить ADB
+## Принудительно остановить ADB
 ```adb kill-server```
 
 
@@ -57,9 +58,9 @@ ADB (Android Debug Bridge) — это инструмент командной с
 ```adb install <apk>``` — установка APK
 ```adb uninstall <apk>``` — удаление APK
 ```adb shell``` — вход в командную строку устройства
-```adb pull <remote> <local> — скачивание файлов с устройства
-```adb push <local> <remote> — загрузка файлов на устройство
-```adb logcat — Посмотреть все логи
+```adb pull <remote> <local>``` — скачивание файлов с устройства
+```adb push <local> <remote>``` — загрузка файлов на устройство
+```adb logcat``` — Посмотреть все логи
 
 ---
 
@@ -83,7 +84,7 @@ ADB (Android Debug Bridge) — это инструмент командной с
 ```adb pull /sdcard/video.mp4```
 
 ## Посмотреть логи работы устройства ```adb logcat```
-- Грепнуть```adb shell logcat -d | grep keyevent```
+- Грепнуть ```adb shell logcat -d | grep keyevent```
 
 ## Грепнуть на винде
 ```adb shell pm list packages | Select-String "com.microsoft"```
